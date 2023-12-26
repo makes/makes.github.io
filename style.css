@@ -1,0 +1,190 @@
+:root {
+    --sidebar-width: 255px;
+
+    /* Light theme colors */
+    --background-color-light: #fdfdfd;
+    --text-color-light: #4a4a4a; /* #111; */
+    --text-color-suppressed-light: #828282;
+    --link-color-light: #1756a9;
+    --sidebar-bg-light: #f4f4f4; /* #eeeeff; */
+    --sidebar-border-light: #ccc;
+    --sidebar-text-color-light: #4a4a4a;
+
+    /* Dark theme colors */
+    --background-color-dark: #181818;
+    --text-color-dark: #bbb;
+    --text-color-suppressed-dark: #575757;
+    --link-color-dark: #79b8ff;
+    --sidebar-bg-dark: #212121;
+    --sidebar-border-dark: #212121;
+    --sidebar-text-color-dark: #bbb;
+}
+
+body, html {
+    height: 100%; /* Full viewport height */
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px 0 0 0; /* 20px 20px 20px 20px; */
+    /* max-width: 800px; */
+    margin-left: calc(var(--sidebar-width) + 60px); /* Sidebar width plus some extra space */
+    margin-right: 60px;
+}
+
+.content {
+    max-width: 640px; /* Maximum width for the main content */
+    margin-left: auto; /* Centering the main content */
+    margin-right: auto; /* Adjust right margin for center alignment */
+}
+
+header h1, header p {
+    display: inline;
+    margin-right: 5px;
+}
+
+a {
+    color: var(--link-color-light);
+    text-decoration: none; /* remove underline */
+}
+
+a:hover {
+    color: var(--text-color-light);
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 2.625rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.625rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.125rem;
+}
+
+h6 {
+    font-size: 1.0625rem;
+}
+
+.suppressed {
+    color: var(--text-color-suppressed-light);
+}
+
+aside {
+    width: calc(var(--sidebar-width) * 0.75);
+    background: var(--sidebar-bg-light);
+    color: var(--sidebar-text-color-light);
+    padding: 40px calc(var(--sidebar-width) * 0.125) 10px calc(var(--sidebar-width) * 0.125);
+    border-color: var(--sidebar-border-light);
+    border-style: solid;
+    border-width: 0 1.7px 0 0;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+aside h2 {
+    font-size: 1.2em;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside ul li {
+    margin-bottom: 10px;
+}
+
+aside ul li a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+aside ul li i {
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    main {
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 20px 20px 20px;
+        max-width: 100%;
+    }
+
+    aside {
+        position: static;
+        padding: 0 30px;
+        height: auto;
+        border-width: 1.7px 0 0 0;
+        width: calc(100% - 60px);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--background-color-dark);
+        color: var(--text-color-dark);
+    }
+
+    a {
+        color: var(--link-color-dark); /* Link color for dark theme */
+    }
+
+    a:hover {
+        color: var(--text-color-dark);
+    }
+
+    .suppressed {
+        color: var(--text-color-suppressed-dark);
+    }
+
+    aside {
+        background: var(--sidebar-bg-dark);
+        color: var(--sidebar-text-color-dark);
+        border-color: var(--sidebar-border-dark);
+    }
+
+    aside ul li a {
+        color: inherit;
+    }
+
+    /* Additional dark theme styles if needed */
+}
